@@ -41,6 +41,19 @@ int multiply() {
 
 }
 
+int square() {
+	int x, res;
+	char cmd[20];
+	res =1; 
+	printf("Enter number to square\n");
+	while( fgets(cmd, 20, stdin) && cmd[0] != '\n' ) {
+		res *= atoi(cmd);
+		res *= res;
+	}
+	printf("Result is %d\n", res);
+
+}
+
 int quit() {
 	printf("Good Bye\n");
 	exit(0);
@@ -66,6 +79,11 @@ struct calc_func functions[] = {
 		.key = '*',
 		.compute = multiply,
 		.name = "multiplication",
+	},
+	{
+		.key = 's',
+		.compute = square,
+		.name = "square",
 	}
 
 };
